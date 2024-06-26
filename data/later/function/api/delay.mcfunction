@@ -1,4 +1,4 @@
-#> delay:api > delay
+#> later:api > delay
 #--------------------
 # -> command: $command
 # -> ticks: int
@@ -18,7 +18,7 @@
 # 0 - failure, <ticks> zero or negative.
 #--------------------
 
-execute store result score *delay.ticks -delay run data get storage delay:in delay.ticks
-execute if score *delay.ticks -delay matches ..-1 run return run function delay:_/impl/delay/end
+execute store result score *delay.ticks -delay run data get storage later:in delay.ticks
+execute if score *delay.ticks -delay matches ..-1 run return run function later:_/impl/delay/end
 
-function delay:_/impl/delay/do with storage delay:in delay
+function later:_/impl/delay/do with storage later:in delay
