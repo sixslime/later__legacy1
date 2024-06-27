@@ -8,10 +8,10 @@
 # <- result: TaskId
 #--------------------
 #> schedules <command> to run AS and AT <selector> after an amount of <ticks>.
-#> {gelay:data -> current.data} will hold <data> when <command> is executed.
+#> {later:data -> current.data} will hold <data> when <command> is executed.
 #--------------------
 #- <selector> is evaluated using the *current* context, not the context when <command> is executed.
-#- >result< is the assigned TaskId, and is used when cancelling a scheduled command.
+#- >result< is the delayed command's assigned TaskId, and is used when cancelling a scheduled command.
 #- <ticks> cannot be zero or negative.
 #--------------------
 # 1 - success

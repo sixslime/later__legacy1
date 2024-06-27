@@ -3,6 +3,8 @@ Task {
     command: $command
     time: int
     data: any
-    task_id: int
+    task_id: TaskId
     targets[]? UUID
 }
+
+TaskId = int
