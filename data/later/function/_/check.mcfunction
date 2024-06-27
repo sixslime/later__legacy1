@@ -1,7 +1,12 @@
-#>later:_/tick
+#>later:_/check
 #--------------------
-# @PRE_TICK
+# @scheduled : api/delay
 #--------------------
 
-scoreboard players add *time --later 1
-schedule function later:_/tick 1t
+execute store result storage later:var check.current_time int 1 run time query gametime
+
+function later:_/check.1 with storage later:var check
+
+execute if data storage later:var check.executing_tasks[] run function later:_/run_task
+
+data remove storage later:var check

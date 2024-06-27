@@ -18,8 +18,11 @@
 # 0 - failure, <ticks> zero or negative.
 #--------------------
 
+execute unless data storage later:in delay.selector run data modify storage later:in delay.selector set value "@s"
+execute unless data storage later:in delay.data run data modify storage later:in delay.data set value {}
+
 execute store result score *delay.ticks -later run data get storage later:in delay.ticks
-execute if score *delay.ticks -later matches ..-1 run return run function later:_/impl/delay/end
+execute unless score *delay.ticks -later matches 1.. run return run function later:_/impl/delay/end
 
 function later:_/impl/delay/do with storage later:in delay
 

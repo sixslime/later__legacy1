@@ -1,6 +1,6 @@
 #>later:_/load
 #--------------------
-# @PRE_LOAD
+# @LOAD
 #--------------------
 
 # load
@@ -17,7 +17,3 @@ execute unless data storage later:settings {PERSIST:true} run function later:set
 # scoreboards
 scoreboard objectives add -later dummy
 scoreboard objectives add --later dummy
-
-# tick
-schedule clear later:_/tick
-function later:_/tick
