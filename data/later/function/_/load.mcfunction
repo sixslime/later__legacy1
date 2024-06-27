@@ -15,8 +15,8 @@ execute unless data storage later:settings {PERSIST:true} run function later:set
 #declare storage later:data
 
 # scoreboards
-scoreboard objectives add -delay dummy
-scoreboard objectives add --delay dummy
+scoreboard objectives add -later dummy
+scoreboard objectives add --later dummy
 
 # tick
 schedule clear later:_/tick

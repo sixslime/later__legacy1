@@ -18,7 +18,13 @@
 # 0 - failure, <ticks> zero or negative.
 #--------------------
 
-execute store result score *delay.ticks -delay run data get storage later:in delay.ticks
-execute if score *delay.ticks -delay matches ..-1 run return run function later:_/impl/delay/end
+execute store result score *delay.ticks -later run data get storage later:in delay.ticks
+execute if score *delay.ticks -later matches ..-1 run return run function later:_/impl/delay/end
 
 function later:_/impl/delay/do with storage later:in delay
+
+data remove storage later:var delay
+data remove storage later:in delay
+scoreboard players reset *delay.ticks -later
+
+return 1
