@@ -4,8 +4,6 @@
 #--------------------
 
 scoreboard players operation *delay.ticks -later += *time --later
-# not sure what to do about this tbh.
-#scoreboard players remove *delay.ticks -later 1
 $execute store result storage later:var delay.task.time int 1 run schedule function later:_/check $(ticks)t append
 
 data modify storage later:var delay.task.command set from storage later:in delay.command
