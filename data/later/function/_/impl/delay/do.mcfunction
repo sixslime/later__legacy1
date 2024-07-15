@@ -8,6 +8,7 @@ $execute store result storage later:var delay.task.time int 1 run schedule funct
 
 data modify storage later:var delay.task.command set from storage later:in delay.command
 data modify storage later:var delay.task.data set from storage later:in delay.data
+data modify storage later:var delay.task.failsafe set from storage later:in delay.failsafe
 
 $execute as $(selector) run data modify storage later:var delay.task.targets append from entity @s UUID 
 

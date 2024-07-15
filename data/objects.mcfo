@@ -5,6 +5,7 @@ Task {
     data: any
     task_id: TaskId
     targets[]? UUID
+    failsafe: $command
 }
 
 TaskId = int
