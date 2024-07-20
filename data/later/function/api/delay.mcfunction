@@ -14,7 +14,8 @@
 #- <selector> is evaluated using the *current* context, not the context when <command> is executed.
 #- >result< is the delayed command's assigned TaskId, and is used when cancelling a scheduled command.
 #- <ticks> cannot be zero or negative.
-#- if <selector> has 0 matches at the time of execution, <failsafe> will run as the server instead.
+#- for every entity matching <selector> that is not present on execution, <failsafe> will run as the server instead, {later:data -> current.target} holding the missing entity's UUID.
+#- {later:data -> current.task_id} will hold >result< when <command> is executed.
 #--------------------
 # 1 - success
 # 0 - failure, <ticks> zero or negative.
