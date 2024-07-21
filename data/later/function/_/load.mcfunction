@@ -6,9 +6,6 @@
 # load
 scoreboard players set *delay load-status 1
 
-# settings
-execute unless data storage later:settings {PERSIST:true} run function later:settings
-
 #declare storage later:var
 #declare storage later:in
 #declare storage later:out
