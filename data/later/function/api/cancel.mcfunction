@@ -2,7 +2,7 @@
 #--------------------
 # -> task_id: TaskId
 #--------------------
-# -> result: Task
+# <- result: Task
 #--------------------
 #> cancels the execution of the delayed command (task) that has <task_id>.
 #--------------------
