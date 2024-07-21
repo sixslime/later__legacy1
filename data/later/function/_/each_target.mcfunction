@@ -4,7 +4,7 @@
 #--------------------
 
 # has to be forward iterating to respect selector order
-data modify storage later:var check.this_target set from storage later:var check.this_task.targets[0]
+data modify storage later:var check.this_target set from storage later:var check.this_task.targets[0].UUID
 
 execute summon snowball run function later:_/each_target.1 with storage later:var check.this_task
 

@@ -10,8 +10,7 @@ data modify storage later:var delay.task.command set from storage later:in delay
 data modify storage later:var delay.task.data set from storage later:in delay.data
 data modify storage later:var delay.task.failsafe set from storage later:in delay.failsafe
 
-$execute as $(selector) run data modify storage later:var delay.task.targets append from entity @s UUID 
-
+$execute as $(selector) run function later:_/impl/delay/append_target
 execute store result storage later:var delay.task.task_id int 1 run scoreboard players get *max_id --later
 data modify storage later:out delay.result set from storage later:var delay.task.task_id
 scoreboard players add *max_id --later 1

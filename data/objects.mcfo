@@ -4,7 +4,7 @@ Task {
     time: int
     data: any
     task_id: TaskId
-    targets[]? UUID
+    targets[]? {UUID: UUID}
     failsafe: $command
 }
 
