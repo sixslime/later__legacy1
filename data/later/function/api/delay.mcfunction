@@ -25,7 +25,6 @@ execute unless data storage later:in delay.selector run data modify storage late
 execute unless data storage later:in delay.data run data modify storage later:in delay.data set value {}
 execute unless data storage later:in delay.failsafe run data modify storage later:in delay.failsafe set value ""
 
-
 execute store result score *delay.ticks -later run data get storage later:in delay.ticks
 execute if score *delay.ticks -later matches ..0 run return run function later:_/impl/delay/end
 
