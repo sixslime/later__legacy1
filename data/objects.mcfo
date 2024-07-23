@@ -1,4 +1,13 @@
 
+later:data {
+    tasks[]: Task
+    current: {
+        task_id: TaskId
+        data: any
+        target: UUID
+    }
+}
+
 Task {
     command: $command
     time: int
