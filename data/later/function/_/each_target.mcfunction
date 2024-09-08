@@ -13,4 +13,4 @@ execute unless score *run.found_target -later matches 1 run function later:_/fai
 scoreboard players reset *run.found_target -later
 
 data remove storage later:var check.this_task.targets[0]
-execute if data storage later:var check.this_task.targets[] run function later:_/each_target
+execute if data storage later:var check.this_task.targets[0] run function later:_/each_target
