@@ -10,7 +10,7 @@ The primary usage of Later is through the `later:api/delay` function. \
 | `delay.failsafe` | string ($command) | "" |
 
 Running `later:api/delay` will immediately save the entities specified by **\<selector\>** and schedule **\<command\>** to execute AS and AT those same entities after a **\<ticks\>** tick delay. \
-`later:data -> current.data` will contain **\<data\>** upon delayed execution. \
+**\<data\>** will be stored in `later:data -> current.data` upon delayed execution. \
 If an entity was captured by **\<selector\>** when `later:api/delay` was executed, but is not present upon delayed execution, **\<failsafe\>** is ran by the server instead (for each missing entity). \
 Additionally, `later:data -> current.target` will hold the UUID of the intended execution target upon delayed execution (intended for use with **\<failsafe\>**).
 
