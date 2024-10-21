@@ -3,8 +3,8 @@ The primary usage of Later is through the `later:api/delay` function. \
 `later:api/delay` takes the following inputs, stored under the `later:in` storage namespace:
 | NBT path | Type | Default value |
 |--|--|--|
-| `delay.ticks` | string ($command) | (none) |
-| `delay.command` | int | (none) |
+| `delay.ticks` | int | (none) |
+| `delay.command` | string ($command) | (none) |
 | `delay.selector` | string ($selector) | "@s" |
 | `delay.data` | any | {} |
 | `delay.failsafe` | string ($command) | "" |
