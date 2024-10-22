@@ -1,6 +1,6 @@
 
 # Later | later
-> A command similar to /schedule, but keeps entity context.
+> Like /schedule, but keeps entity context.
 ### Dependencies
  (None)
 
