@@ -6,6 +6,7 @@
 
 
 # Usage
+### Delay
 The primary usage of Later is through the `later:api/delay` function. \
 `later:api/delay` takes the following inputs, stored under the `later:in` storage namespace:
 | NBT path | Type | Default Value |
@@ -23,6 +24,7 @@ Additionally, `later:data -> current.target` will hold the UUID of the intended 
 
 `later:api/delay` will store the Task ID of the created "task" to `later:out delay.result`.
 
+### Delay (UUID List)
 Alternatively, `later:api/delay_direct` can be used with a list of entity UUIDs instead of a selector to specify targets:
 | NBT path | Type | Default Value |
 |--|--|--|
@@ -34,6 +36,7 @@ Alternatively, `later:api/delay_direct` can be used with a list of entity UUIDs 
 
 `later:api/delay_direct` in all other aspects is equivelent to `later:api/delay`. (storing the Task ID in `later:out delay_direct.result`).
 
+### Cancellation
 To cancel a delayed execution, use `later:api/cancel`; which takes a single input:
 | NBT path | Type | Default value |
 |--|--|--|
