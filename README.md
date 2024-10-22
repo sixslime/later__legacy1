@@ -44,6 +44,8 @@ To cancel a delayed execution, use `later:api/cancel`; which takes a single inpu
 
 This will return 0 and do nothing if no task with **\<task_id\>** is found or is already executed.
 
+___
+
 All `later:api/...` function reset their input values upon execution. This is important to take note of especially if multi-selectors are used, as seen in the Examples section.
 
 ## Examples
