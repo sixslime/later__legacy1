@@ -74,13 +74,13 @@ kill @e[type=cow,tag=two]
 Data example:
 ```mcfunction
 summon creeper ~ ~ ~ {Tags:["example"]}
-data merge storage later:in {delay:{ticks:40, command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it's ",{"nbt":"Health","entity":"@s"}]', selector:"@n[type=creeper,tag=example]"}}
+data merge storage later:in {delay:{ticks:40, command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it is ",{"nbt":"Health","entity":"@s"}]', selector:"@n[type=creeper,tag=example]"}}
 data modify storage later:in delay.data.old_health set from entity @s Health
 function later:api/delay
 damage @n[type=creeper,tag=example] 5
 
 # After 2 seconds, the following message would appear in chat: (assuming the creeper was not damaged again within the 2 seconds)
-#> [Creeper] My health was 20 two seconds ago, but now it's 15
+#> [Creeper] My health was 20 two seconds ago, but now it is 15
 
 ```
 Bad usage:
