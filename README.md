@@ -2,7 +2,7 @@
 # Later | later
 > Like /schedule, but keeps entity context.
 ### Dependencies
- (None)
+- [load](https://github.com/sixslime/load)
 
 
 # Usage
