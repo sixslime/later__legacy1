@@ -1,6 +1,6 @@
 
 # Later | later
-> Like /schedule, but retains context.
+> Like /schedule, but retains entity context.
 ### Dependencies
 - [load](https://github.com/sixslime/load)
 
