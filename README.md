@@ -1,6 +1,6 @@
 
 # Later | later
-> Like /schedule, but keeps entity context.
+> Like /schedule, but retains context.
 ### Dependencies
 - [load](https://github.com/sixslime/load)
 
@@ -12,15 +12,15 @@ The primary usage of Later is through the `later:api/delay` function. \
 | NBT path | Type | Default Value |
 |--|--|--|
 | `delay.ticks` | int | *(none)* |
-| `delay.command` | string ($command) | *(none)* |
-| `delay.selector` | string ($selector) | "@s" |
+| `delay.command` | string (command) | *(none)* |
+| `delay.selector` | string (selector) | "@s" |
 | `delay.data` | any | {} |
-| `delay.failsafe` | string ($command) | "" |
+| `delay.failsafe` | string (command) | "" |
 
-Running `later:api/delay` will immediately save the entities specified by **\<selector\>** and schedule **\<command\>** to execute AS and AT those same entities after a **\<ticks\>** tick delay. \
-**\<data\>** will be stored in `later:data -> current.data` upon delayed execution. \
-If an entity was captured by **\<selector\>** when `later:api/delay` was executed, but is not present upon delayed execution, **\<failsafe\>** runs with server/no context instead (for each missing entity). \
-Additionally, `later:data -> current.target` will hold the UUID of the intended execution target upon delayed execution (intended for use with **\<failsafe\>**).
+Running `later:api/delay` immediatly stores the entities specified by **\<selector\>** and schedules **\<command\>** to execute AS and AT those entities after a **\<ticks\>** tick delay. \
+**\<data\>** is stored in `later:data -> current.data` when the delayed command is executed. \
+If an entity captured by **\<selector\>** is missing when the delay ends, **\<failsafe\>** runs with server/no context instead (once each missing entity). \
+Additionally, the UUID of the intended execution target is stored in `later:data -> current.target` when the delayed command is executed. (intended for use with **\<failsafe\>**).
 
 `later:api/delay` will store the Task ID of the created "task" to `later:out delay.result`.
 
@@ -34,7 +34,7 @@ Alternatively, `later:api/delay_direct` can be used with a list of entity UUIDs 
 | `delay_direct.data` | any | {} |
 | `delay_direct.failsafe` | string ($command) | "" |
 
-`later:api/delay_direct` in all other aspects is equivelent to `later:api/delay`. (storing the Task ID in `later:out delay_direct.result`).
+In all other aspects, `later:api/delay_direct` is equivalent to `later:api/delay`. (storing the Task ID in `later:out delay_direct.result`).
 
 ### Cancellation
 To cancel a delayed execution, use `later:api/cancel`; which takes a single input:
@@ -42,7 +42,7 @@ To cancel a delayed execution, use `later:api/cancel`; which takes a single inpu
 |--|--|--|
 | `cancel.task_id` | int (Task ID) | *(none)* |
 
-This will return 0 and do nothing if no task with **\<task_id\>** is found or is already executed.
+This returns `0` and does nothing if no task with **\<task_id\>** is found or is already executed.
 
 ___
 
@@ -88,7 +88,7 @@ Bad usage:
 # Do NOT execute api functions as multi-selectors!
 execute as @e[tag=my_targets] run function later:api/delay
 #           ^ ^ ^ ^ ^ ^ ^ ^ ^ Bad!
-# The inputs for later:api/delay will be reset after it is run for the first target and do nothing for the rest; use the "selector" input.
+# The inputs for later:api/delay reset after execution as the first target entity and do nothing for the rest; use the "selector" input.
 ```
 
 ___
