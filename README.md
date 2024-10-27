@@ -52,17 +52,36 @@ All `later:api/...` function reset their input values upon execution. This is im
 
 Basic usage:
 ```mcfunction
-# make the executing entity say "hi!" after 5 seconds.
+# make the executing entity say "hi!" in 5 seconds:
 data merge storage later:in {delay:{ticks:100, command:"say hi!"}}
 function later:api/delay
 ```
+Data example:
+```mcfunction
+# summon test creeper:
+summon creeper ~ ~ ~ {Tags:["example"]}
 
+# pass in it's *current* health as 'data.oldhealth' input, 
+data modify storage later:in delay.data.old_health set from entity @s Health
+# execute a 2-second delayed tellraw command from the creeper, referencing the passed data:
+data merge storage later:in {delay:{ticks:40, command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it is ",{"nbt":"Health","entity":"@s"}]', selector:"@n[type=creeper,tag=example]"}}
+function later:api/delay
+
+# say the creeper takes 5 damage in the 2-second delay window.
+# the following message would appear in chat at the end of the delay:
+#> My health was 20 two seconds ago, but now it is 15
+```
 Failsafe example:
 ```mcfunction
+# summon test cows:
 summon cow ~ ~ ~ {Tags:["example", "one"]}
 summon cow ~ ~ ~ {Tags:["example", "two"]}
+
+# execute a 5-second delayed 'say' command on the two cows, providing a different 'say' command as a failsafe:
 data merge storage later:in {delay:{ticks:100, command:"say I'm an example.", selector:"@e[type=cow,tag=example]", failsafe:"say No cow found!"}}
 function later:api/delay
+
+# kill cow two:
 kill @e[type=cow,tag=two]
 
 # After 5 seconds, the following messages would appear in chat:
@@ -70,22 +89,9 @@ kill @e[type=cow,tag=two]
 #> [Server] No cow found!
 # The "[Cow]" is cow one, while the failsafe was executed for cow two, because it no longer existed when the 5 second delay was over.
 ```
-
-Data example:
-```mcfunction
-summon creeper ~ ~ ~ {Tags:["example"]}
-data merge storage later:in {delay:{ticks:40, command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it is ",{"nbt":"Health","entity":"@s"}]', selector:"@n[type=creeper,tag=example]"}}
-data modify storage later:in delay.data.old_health set from entity @s Health
-function later:api/delay
-damage @n[type=creeper,tag=example] 5
-
-# After 2 seconds, the following message would appear in chat: (assuming the creeper was not damaged again within the 2 seconds)
-#> [Creeper] My health was 20 two seconds ago, but now it is 15
-
-```
 Bad usage:
 ```mcfunction
-# Do NOT execute api functions as multi-selectors!
+# Do NOT execute api functions AS multi-selectors!
 execute as @e[tag=my_targets] run function later:api/delay
 #           ^ ^ ^ ^ ^ ^ ^ ^ ^ Bad!
 # The inputs for later:api/delay reset after execution as the first target entity and do nothing for the rest; use the "selector" input.
