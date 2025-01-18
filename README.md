@@ -1,6 +1,6 @@
 
 # Later | later
-> Like /schedule, but retains entity context.
+> Dead-simple library/framework to delay commands while retaining entity context.
 ### Dependencies
 - [load](https://github.com/sixslime/load)
 
