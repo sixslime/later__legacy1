@@ -1,6 +1,6 @@
 {
 	"pack": {
 		"pack_format": 61,
-		"description": "Like /schedule, but retains entity context. (Library)"
+		"description": "Dead-simple library/framework to delay commands while retaining entity context. (Library)"
 	}
 }
