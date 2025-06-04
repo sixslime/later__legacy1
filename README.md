@@ -67,7 +67,8 @@ data modify storage later:in delay.data.old_health set from entity @s Health
 data merge storage later:in {delay:{ticks:40, selector:"@n[type=creeper,tag=example]", command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it is ",{"nbt":"Health","entity":"@s"}]'}}
 function later:api/delay
 
-# say the creeper takes 5 damage in the 2-second delay window.
+# imagine the creeper takes 5 damage in the 2-second delay window.
+
 # the following message would appear in chat at the end of the delay:
 #> My health was 20 two seconds ago, but now it is 15
 ```
