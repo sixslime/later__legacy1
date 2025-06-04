@@ -2,7 +2,7 @@
 # Later | later
 > Dead-simple library/framework to schedule commands while retaining entity context.
 ### Dependencies
-- [load](https://github.com/sixslime/load)
+- [load](https://github.com/sixslime/load__legacy1)
 
 
 # Usage
