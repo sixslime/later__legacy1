@@ -64,7 +64,7 @@ summon creeper ~ ~ ~ {Tags:["example"]}
 # pass in it's *current* health as 'data.oldhealth' input, 
 data modify storage later:in delay.data.old_health set from entity @s Health
 # execute a 2-second delayed tellraw command from the creeper, referencing the passed data:
-data merge storage later:in {delay:{ticks:40, command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it is ",{"nbt":"Health","entity":"@s"}]', selector:"@n[type=creeper,tag=example]"}}
+data merge storage later:in {delay:{ticks:40, selector:"@n[type=creeper,tag=example]", command:'tellraw @a ["","My health was",{"nbt":"current.data.old_health","storage":"later:data"}," two seconds ago, but now it is ",{"nbt":"Health","entity":"@s"}]'}}
 function later:api/delay
 
 # say the creeper takes 5 damage in the 2-second delay window.
