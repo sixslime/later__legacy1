@@ -19,7 +19,7 @@ The primary usage of Later is through the `later:api/delay` function. \
 
 Running `later:api/delay` immediatly stores the entities specified by **\<selector\>** and schedules **\<command\>** to execute AS and AT those entities after a **\<ticks\>** tick delay. \
 **\<data\>** is stored in `later:data -> current.data` when the delayed command is executed. \
-If an entity captured by **\<selector\>** is missing when the delay ends, **\<failsafe\>** runs with server/no context instead (once each missing entity). \
+If an entity captured by **\<selector\>** is missing when the delay ends, **\<failsafe\>** runs with server/no context instead (once for each missing entity). \
 Additionally, the UUID of the intended execution target is stored in `later:data -> current.target` when the delayed command is executed. (intended for use with **\<failsafe\>**).
 
 `later:api/delay` will store the Task ID of the created "task" to `later:out delay.result`.
